@@ -88,6 +88,7 @@ const userInput = [
     }
 
 ];
+const team =[];
 
 init();
 function init() {
@@ -107,5 +108,10 @@ function init() {
             const employee = new Intern(id, name, email, school);
             team.push(employee);
         }
+        init();
+    }).then(() => {
+        fs.writeFile("index.html", render(team), function(err) {
+            if(err) throw err;
+        });
     });
 }
